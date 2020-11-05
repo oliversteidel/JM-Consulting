@@ -5,7 +5,9 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
   margin: 0;
@@ -14,6 +16,10 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* --- START NAVBAR --- */
@@ -35,7 +41,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1em;
-  z-index: 1;
+  z-index: 5;
 }
 
 .nav__logo-wrapper {
@@ -93,8 +99,8 @@ body {
   height: 2px;
   background: #FFFFE0;
   border-radius: 5px;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .nav__btn::before {
@@ -106,8 +112,8 @@ body {
   position: absolute;
   top: 10px;
   left: 2px;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .nav__btn::after {
@@ -119,8 +125,8 @@ body {
   position: absolute;
   bottom: 10px;
   left: 2px;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .nav__btn-container.open .nav__btn {
@@ -295,8 +301,8 @@ body {
 
 @media only screen and (min-width: 56.25em) {
   .hero__sub-headline-container {
-    width: 80%;
-    max-width: 66.25em;
+    width: 90%;
+    max-width: 75em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -349,7 +355,7 @@ body {
   -ms-grid-column: 2;
   -ms-grid-column-span: 10;
   grid-column: 2/12;
-  font-size: clamp(1.25em, 2.2vw, 1.75em);
+  font-size: clamp(1.5em, 2.3vw, 1.75em);
   font-weight: 300;
   text-align: center;
   padding: 1rem;
@@ -359,7 +365,7 @@ body {
   -ms-grid-column: 2;
   -ms-grid-column-span: 10;
   grid-column: 2/12;
-  font-size: clamp(1em, 1.8vw, 1.5em);
+  font-size: clamp(1.1em, 1.8vw, 1.5em);
   font-weight: 300;
   text-align: center;
 }
@@ -442,7 +448,7 @@ body {
   text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   line-height: 1.5em;
 }
 
@@ -478,23 +484,237 @@ body {
 @media only screen and (min-width: 50em) {
   .modell .paragraph-2 {
     -ms-grid-column: 7;
-    -ms-grid-column-span: 5;
-    grid-column: 7/12;
+    -ms-grid-column-span: 6;
+    grid-column: 7/13;
     -ms-grid-row: 5;
     -ms-grid-row-span: 1;
     grid-row: 5/6;
   }
 }
 
-.modell .paragraph-3 {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 10;
-  grid-column: 2/12;
-  -ms-grid-row: 6;
-  -ms-grid-row-span: 1;
-  grid-row: 6/7;
-  font-size: 1.125em;
+/* --- END MODELL SECTION --- */
+/* --- START ANGEBOTE SECTION --- */
+.angebote {
+  width: 100vw;
+  height: 100%;
+  background: #343A40;
+  color: #FFFFE0;
+  display: -ms-grid;
+  display: grid;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote {
+    -ms-grid-columns: (minmax(84px, 1fr))[12];
+        grid-template-columns: repeat(12, minmax(84px, 1fr));
+    -ms-grid-rows: 150px (1fr)[5];
+        grid-template-rows: 150px repeat(5, 1fr);
+    gap: 20px;
+  }
+}
+
+.angebote__headline {
+  font-size: clamp(1.5em, 2.3vw, 1.75em);
   font-weight: 300;
   text-align: center;
 }
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__headline {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1/13;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+}
+
+.angebote__text-container {
+  width: 90vw;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: #cdd5dc;
+  color: #343A40;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__text-container {
+    width: unset;
+    max-height: 300px;
+    -ms-grid-column-align: unset;
+        justify-self: unset;
+    margin-top: unset;
+    padding: unset;
+  }
+}
+
+.angebote__title {
+  font-size: clamp(1.1em, 1.8vw, 1.5em);
+  font-weight: 300;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__title {
+    margin-top: unset;
+    padding: unset;
+  }
+}
+
+.angebote__text {
+  font-size: clamp(0.9em, 1.25vw, 1.1em);
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.75em;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__text {
+    text-align: left;
+  }
+}
+
+.angebote__img-container {
+  width: 90vw;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__img-container {
+    max-height: 300px;
+    width: unset;
+    -ms-grid-column-align: unset;
+        justify-self: unset;
+  }
+}
+
+.angebote__img {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__persEntw {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 5;
+    grid-column: 3/8;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__persEntw-img {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
+    grid-column: 8/11;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__lifeCoaching {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    -ms-grid-column: 7;
+    -ms-grid-column-span: 5;
+    grid-column: 7/12;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__lifeCoaching-img {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 4;
+    grid-column: 3/7;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__karriereCoaching {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-row: 4/5;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 5;
+    grid-column: 3/8;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__karriereCoaching-img {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-row: 4/5;
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
+    grid-column: 8/11;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__gast {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    grid-row: 5/6;
+    -ms-grid-column: 7;
+    -ms-grid-column-span: 5;
+    grid-column: 7/12;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__gast-img {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    grid-row: 5/6;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    grid-column: 3/6;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__spirits {
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 1;
+    grid-row: 6/7;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 5;
+    grid-column: 3/8;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .angebote__spirits-img {
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 1;
+    grid-row: 6/7;
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
+    grid-column: 8/11;
+  }
+}
+
+/* --- END ANGEBOTE SECTION --- */
 /*# sourceMappingURL=styles.css.map */

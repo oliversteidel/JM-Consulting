@@ -4,23 +4,43 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit; 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
     margin: 0;
-    padding: 0;   
+    padding: 0;
 }
 
 body {
-    
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+}
 
 @mixin flex-center($direction) {
     display: flex;
     flex-direction: $direction;
     // justify-content: center;
     align-items: center;
-    
+}
+
+@mixin headline {
+    font-size: clamp(1.5em, 2.3vw, 1.75em);
+    font-weight: 300;
+    text-align: center;
+}
+
+@mixin sub-headline {
+    font-size: clamp(1.1em, 1.8vw, 1.5em);
+    font-weight: 300;
+    text-align: center;
+}
+
+@mixin paragraph {
+    font-size: clamp(0.9em, 1.25vw, 1.1em);
+    font-weight: 300;
+    text-align: center;
 }
