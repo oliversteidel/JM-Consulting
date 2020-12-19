@@ -1,8 +1,13 @@
+$bgColor: #343a40;
+$primaryColor: #ffffe0;
+$secondaryColor: #cdd5dc;
+
 html {
     font-size: 100%;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 *,
@@ -11,11 +16,12 @@ html {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+    //outline: 1px solid blue;
 }
 
 body {
     overflow-x: hidden;
-    
+    height: 100%;    
 }
 
 h1,
@@ -41,29 +47,37 @@ a:active {
     color: $primaryColor;
     background: transparent;
     border: 1px solid $primaryColor;
-    border-radius: 5px; 
+    border-radius: 5px;
     font-family: "Roboto", sans-serif;
-    font-size: 1rem;   
-    font-weight: 300;    
+    font-size: 1rem;
+    font-weight: 300;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
-    background-color: $primaryColor;
-    color: $bgColor;
-    box-shadow: 0 0 5px $primaryColor;
+.rotated-back {
+    transform: rotateY(0.5turn);
 }
 
-.btn:hover a {
-    color: $bgColor;
+.rotated-front {
+    transform: rotateY(1turn);
+}
 
+@media (hover: hover) {
+    .btn:hover {
+        background-color: $primaryColor;
+        color: $bgColor;
+        box-shadow: 0 0 5px $primaryColor;
+    }
+
+    .btn:hover a {
+        color: $bgColor;
+    }
 }
 
 @mixin flex-center($direction) {
     display: flex;
     flex-direction: $direction;
-    // justify-content: center;
     align-items: center;
 }
 
@@ -92,4 +106,16 @@ a:active {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
     text-align: justify;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

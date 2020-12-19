@@ -1,0 +1,5 @@
+node_modules
+app/images
+gulpfile.js
+package.json
+package-lock.json

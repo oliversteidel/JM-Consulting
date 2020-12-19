@@ -1,5 +1,4 @@
-@import "variables";
-@import "globals";
+@import "./vendors/globals";
 
 /* --- START NAVBAR --- */
 
@@ -10,7 +9,6 @@
     top: 0;
     left: 0;
     background-color: $bgColor;
-    //border-bottom: 1px solid $primaryColor;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,6 +143,10 @@
             width: 90%;
         }
     }
+
+    .active {
+        font-weight: 500;
+    }
 }
 
 /* --- END NAVBAR --- */
@@ -152,9 +154,10 @@
 /* --- START HERO PAGE --- */
 
 .hero {
+    width: 100vw;
     height: 100vh;
     padding-top: 4.6875rem;
-    background-image: url(../../images/klippeHoch.jpg);
+    background-image: url(../images/klippeHoch.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -164,12 +167,16 @@
     @include flex-center(column);
     justify-content: space-evenly;
 
+    @supports not (background-attachment: fixed) {
+        background-attachment: local;
+    }
+
     @media only screen and (max-height: 35.625rem) {
         height: 100%;
     }
 
     @media only screen and (min-width: 50rem) {
-        background-image: url(../../images/klippe.jpg);
+        background-image: url(../images/klippe.jpg);
     }
 
     &__headline {
@@ -197,7 +204,7 @@
     }
 
     &__btn:hover {
-        background-color: $primaryColor;       
+        background-color: $primaryColor;
         box-shadow: 0 0 5px $primaryColor;
     }
 
@@ -325,7 +332,6 @@
 
     .paragraph-1 {
         grid-column: 2/12;
-        
 
         @media only screen and (min-width: 50rem) {
             grid-column: 1/7;
@@ -333,9 +339,12 @@
         }
     }
 
+    .stGallerLink {
+        text-decoration: underline;
+    }
+
     .paragraph-2 {
         grid-column: 2/12;
-        
 
         @media only screen and (min-width: 50rem) {
             grid-column: 7/13;
@@ -352,13 +361,17 @@
     width: 100vw;
     height: 100%;
     padding-top: 4rem;
-    background-image: url(../../images/tree.jpg);
+    background-image: url(../images/stones.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: $primaryColor;
     @include flex-center(column);
+
+    @supports not (background-attachment: fixed) {
+        background-attachment: local;
+    }
 
     &__headline {
         font-size: clamp(1.75rem, 2.5vw, 4rem);
@@ -375,11 +388,22 @@
         width: 90vw;
         margin-bottom: 3rem;
         box-shadow: 0 10px 25px black;
+        position: relative;
 
         @media only screen and (min-width: 62.5rem) {
             flex-direction: row;
             align-items: stretch;
         }
+    }
+
+    .text-left {
+        perspective: 1500px;
+        perspective-origin: 25%;
+    }
+
+    .text-right {
+        perspective: 1500px;
+        perspective-origin: 75%;
     }
 
     .container-lifeCoaching,
@@ -394,8 +418,8 @@
         padding: 2rem;
         background: $bgColor;
         @include flex-center(column);
-
-        
+        backface-visibility: hidden;
+        transition: transform 1.2s ease-in-out;
     }
 
     &__title {
@@ -411,6 +435,46 @@
     &__text {
         @include paragraph;
         line-height: 1.75em;
+    }
+
+    &__container-coaching-details--left {
+        background: $bgColor;
+        @include flex-center(column);
+        padding: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: calc(90vw * 0.666);
+        right: 0;
+        backface-visibility: hidden;
+        transition: transform 1.2s ease-in-out;
+
+        @media only screen and (min-width: 62.5rem) {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 48%;
+        }
+    }
+
+    &__container-coaching-details--right {
+        background: $bgColor;
+        @include flex-center(column);
+        padding: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: calc(90vw * 0.666);
+        right: 0;
+        backface-visibility: hidden;
+        transition: transform 1.2s ease-in-out;
+
+        @media only screen and (min-width: 62.5rem) {
+            top: 0;
+            left: 48%;
+            bottom: 0;
+            right: 0;
+        }
     }
 
     &__img-container {
@@ -555,23 +619,22 @@
         font-size: 3rem;
         color: $primaryColor;
         position: relative;
-    }
-    
+    }    
+
     .fab::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 3px;
         height: 2.6875rem;
-        width: 2.625rem;   
-        border: 1px solid $primaryColor;     
+        width: 2.625rem;
+        border: 1px solid $primaryColor;
         border-radius: 5px;
         transform-origin: center;
-        transition: transform .3s ease-in;
     }
 
     .fab:hover::after {
-        transform: scale(1.3);
+        animation: pulse 1s infinite;
     }
 
     p {
@@ -584,9 +647,42 @@
         @include flex-center(column);
     }
 
-    .impressum,
-    .datenschutz {
+    .impressum-link,
+    .datenschutz-link {
         margin-bottom: 1rem;
         color: $primaryColor;
+    }
+}
+
+.impressum,
+.datenschutz {
+    background: $bgColor;
+    color: $primaryColor;
+    padding: 2rem 10vw 2rem 10vw;
+
+    a {
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    h1 {
+        @include headline;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    h2,
+    h3,
+    h4 {
+        @include sub-headline;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    p {
+        @include paragraph;
+        margin-bottom: 1rem;
     }
 }
