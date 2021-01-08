@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: $bgColor;
+    background: $bgColor;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,6 +125,7 @@
             padding-right: 0.6rem;
             opacity: 1 !important;
             position: relative;
+            background: transparent;
         }
     }
 
@@ -172,7 +173,7 @@
     }
 
     @media only screen and (max-height: 35.625rem) {
-        height: 100%;
+        height: 100%; 
     }
 
     @media only screen and (min-width: 50rem) {
@@ -209,7 +210,7 @@
     }
 
     &__btn:hover a {
-        color: $bgColor;
+        color: $darkGrey;
     }
 
     &__sub-headline-container {
@@ -228,6 +229,23 @@
         font-weight: 300;
         font-size: clamp(1.25rem, 2.2vw, 1.75rem);
         margin-bottom: 0.75rem;
+        position: relative;
+    }
+
+    &__sub-headline::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        border-bottom: 1px solid $primaryColor;
+        transition: width 0.2s ease-in;
+    }
+
+    &__sub-headline:hover::after {
+        @media only screen and (min-width: 45rem) {
+            width: 90%;
+        }
     }
 
     &__quote {
@@ -244,8 +262,7 @@
 
 /* --- START MODELL SECTION --- */
 
-.modell {
-    height: 100%;
+.modell {    
     width: 100vw;
     background: $bgColor;
     color: $primaryColor;
@@ -324,6 +341,7 @@
         padding-bottom: 1rem;
         line-height: 1.5em;
         text-align: justify;
+        
 
         @media only screen and (min-width: 50rem) {
             // text-align: left;
@@ -358,8 +376,7 @@
 /* --- START ANGEBOTE SECTION --- */
 
 .angebote {
-    width: 100vw;
-    height: 100%;
+    width: 100vw;    
     padding-top: 4rem;
     background-image: url(../images/stones.jpg);
     background-size: cover;
@@ -380,7 +397,7 @@
         color: $primaryColor;
         margin-top: 2rem;
         margin-bottom: 2rem;
-        text-shadow: 0 0 10px $bgColor;
+        text-shadow: 0 0 10px #343a40;
     }
 
     .flex-container {
@@ -435,6 +452,7 @@
     &__text {
         @include paragraph;
         line-height: 1.75em;
+        max-width: 55ch;
     }
 
     &__container-coaching-details--left {
@@ -483,7 +501,7 @@
         background: $bgColor;
     }
 
-    &__img {
+    &__img {        
         width: 100%;
         display: block;
     }
