@@ -340,7 +340,7 @@
         padding-right: 1rem;
         padding-bottom: 1rem;
         line-height: 1.5em;
-        text-align: justify;
+        
         
 
         @media only screen and (min-width: 50rem) {
@@ -435,6 +435,7 @@
         padding: 2rem;
         background: $bgColor;
         @include flex-center(column);
+        justify-content: center;
         backface-visibility: hidden;
         transition: transform 1.2s ease-in-out;
     }
@@ -453,52 +454,13 @@
         @include paragraph;
         line-height: 1.75em;
         max-width: 55ch;
-    }
-
-    &__container-coaching-details--left {
-        background: $bgColor;
-        @include flex-center(column);
-        padding: 2rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: calc(90vw * 0.666);
-        right: 0;
-        backface-visibility: hidden;
-        transition: transform 1.2s ease-in-out;
-
-        @media only screen and (min-width: 62.5rem) {
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 48%;
-        }
-    }
-
-    &__container-coaching-details--right {
-        background: $bgColor;
-        @include flex-center(column);
-        padding: 2rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: calc(90vw * 0.666);
-        right: 0;
-        backface-visibility: hidden;
-        transition: transform 1.2s ease-in-out;
-
-        @media only screen and (min-width: 62.5rem) {
-            top: 0;
-            left: 48%;
-            bottom: 0;
-            right: 0;
-        }
-    }
+    }    
 
     &__img-container {
         width: 90vw;
         height: auto;
         background: $bgColor;
+        overflow: hidden;
     }
 
     &__img {        

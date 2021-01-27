@@ -108,7 +108,7 @@ a:active {
 @mixin paragraph {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
-    text-align: justify;
+    //text-align: justify;
 }
 
 @keyframes pulse {

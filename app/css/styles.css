@@ -422,12 +422,10 @@ a:active {
   .modell__text {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
-    text-align: justify;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
-    line-height: 1.5em;
-    text-align: justify; }
+    line-height: 1.5em; }
   .modell .paragraph-1 {
     grid-column: 2/12; }
     @media only screen and (min-width: 50rem) {
@@ -531,6 +529,9 @@ a:active {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
     -webkit-transition: -webkit-transform 1.2s ease-in-out;
@@ -549,73 +550,13 @@ a:active {
   .angebote__text {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
-    text-align: justify;
     line-height: 1.75em;
     max-width: 55ch; }
-  .angebote__container-coaching-details--left {
-    background: linear-gradient(45deg, #232526, #414345);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: calc(90vw * 0.666);
-    right: 0;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: -webkit-transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; }
-    @media only screen and (min-width: 62.5rem) {
-      .angebote__container-coaching-details--left {
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 48%; } }
-  .angebote__container-coaching-details--right {
-    background: linear-gradient(45deg, #232526, #414345);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: calc(90vw * 0.666);
-    right: 0;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    -webkit-transition: -webkit-transform 1.2s ease-in-out;
-    transition: -webkit-transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out;
-    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; }
-    @media only screen and (min-width: 62.5rem) {
-      .angebote__container-coaching-details--right {
-        top: 0;
-        left: 48%;
-        bottom: 0;
-        right: 0; } }
   .angebote__img-container {
     width: 90vw;
     height: auto;
-    background: linear-gradient(45deg, #232526, #414345); }
+    background: linear-gradient(45deg, #232526, #414345);
+    overflow: hidden; }
   .angebote__img {
     width: 100%;
     display: block; }
@@ -709,7 +650,6 @@ a:active {
   .about__text {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
-    text-align: justify;
     line-height: 1.5em; }
   .about .blog-link {
     font-weight: 500;
@@ -834,5 +774,4 @@ a:active {
   .datenschutz p {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300;
-    text-align: justify;
     margin-bottom: 1rem; }
