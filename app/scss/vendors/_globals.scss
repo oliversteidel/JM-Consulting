@@ -41,7 +41,7 @@ a:active {
 .btn {
     // width: 11.5rem;
     // height: 2.125rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding: 1em 3em;
     display: flex;
     align-items: center;
@@ -57,8 +57,17 @@ a:active {
     transition: all 0.3s ease-in-out;
 }
 
+.contact-btn {
+    font-size: 0.75rem;
+
+    @media only screen and (min-width: 50rem) {
+        font-size: 0.9rem; 
+    }   
+}
+
 .btn:hover {
     background-color: $primaryColor;
+    opacity: 0.75;
     color: $bgColor;
     box-shadow: 0 0 5px $primaryColor;
     color: $darkGrey;

@@ -30,7 +30,7 @@ a:active {
   color: #ffffe0; }
 
 .btn {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   padding: 1em 3em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -52,8 +52,15 @@ a:active {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
 
+.contact-btn {
+  font-size: 0.75rem; }
+  @media only screen and (min-width: 50rem) {
+    .contact-btn {
+      font-size: 0.9rem; } }
+
 .btn:hover {
   background-color: #ffffe0;
+  opacity: 0.75;
   color: linear-gradient(45deg, #232526, #414345);
   -webkit-box-shadow: 0 0 5px #ffffe0;
           box-shadow: 0 0 5px #ffffe0;
@@ -154,6 +161,7 @@ a:active {
     width: 1.875rem;
     height: 0.125rem;
     background: #ffffe0;
+    border: none;
     border-radius: 5px;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out; }
@@ -278,10 +286,10 @@ a:active {
           justify-content: space-evenly; }
   @supports not (background-attachment: fixed) {
     .hero {
-      background-attachment: local; } }
+      background-attachment: unset; } }
   @media only screen and (max-height: 35.625rem) {
     .hero {
-      height: 100%; } }
+      height: unset; } }
   @media only screen and (min-width: 50rem) {
     .hero {
       background-image: url(../images/klippe.jpg); } }
@@ -464,7 +472,9 @@ a:active {
           align-items: center; }
   @supports not (background-attachment: fixed) {
     .angebote {
-      background-attachment: local; } }
+      background-repeat: repeat;
+      background-size: 100% auto;
+      background-position: top center; } }
   .angebote__headline {
     font-size: clamp(1.75rem, 2.5vw, 4rem);
     font-weight: 500;
@@ -529,9 +539,6 @@ a:active {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
     -webkit-transition: -webkit-transform 1.2s ease-in-out;
@@ -689,9 +696,19 @@ a:active {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 300;
     color: #ffffe0;
-    margin-bottom: 2rem; }
-  .footer .email:hover {
-    text-decoration: underline; }
+    margin-bottom: 2rem;
+    position: relative; }
+  .footer .email::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 1px solid #ffffe0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in; }
+  .footer .email:hover::after {
+    width: 100%; }
   .footer__social-links-container {
     width: 100vw;
     display: -webkit-box;
@@ -724,6 +741,19 @@ a:active {
   .footer p {
     font-weight: 300;
     margin-bottom: 1rem; }
+  .footer .os-link {
+    position: relative; }
+  .footer .os-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 1px solid #ffffe0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in; }
+  .footer .os-link:hover::after {
+    width: 100%; }
   .footer .impressum-links {
     width: 50vw;
     display: -webkit-box;
@@ -739,7 +769,21 @@ a:active {
   .footer .impressum-link,
   .footer .datenschutz-link {
     margin-bottom: 1rem;
-    color: #ffffe0; }
+    color: #ffffe0;
+    position: relative; }
+  .footer .impressum-link::after,
+  .footer .datenschutz-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 1px solid #ffffe0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in; }
+  .footer .impressum-link:hover::after,
+  .footer .datenschutz-link:hover::after {
+    width: 100%; }
 
 .impressum,
 .datenschutz {
