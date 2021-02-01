@@ -1,6 +1,7 @@
 $darkGrey: #343a40;
 $bgColor: linear-gradient(45deg, #232526, #414345);
 $primaryColor: #ffffe0;
+$primaryColorHover: RGBA(255, 255, 224, 0.75);
 $secondaryColor: #cdd5dc;
 
 html {
@@ -20,9 +21,14 @@ html {
     //outline: 1px solid blue;
 }
 
+*:focus {
+    outline: 3px dotted $primaryColor;
+    outline-offset: 2px;
+}
+
 body {
     overflow-x: hidden;
-    height: 100%;    
+    height: 100%;
 }
 
 h1,
@@ -39,8 +45,6 @@ a:active {
 }
 
 .btn {
-    // width: 11.5rem;
-    // height: 2.125rem;
     margin-top: 2rem;
     padding: 1em 3em;
     display: flex;
@@ -50,9 +54,8 @@ a:active {
     background: transparent;
     border: 1px solid $primaryColor;
     border-radius: 5px;
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
+
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -61,31 +64,15 @@ a:active {
     font-size: 0.75rem;
 
     @media only screen and (min-width: 50rem) {
-        font-size: 0.9rem; 
-    }   
+        font-size: 1rem;
+    }
 }
 
 .btn:hover {
-    background-color: $primaryColor;
-    opacity: 0.75;
-    color: $bgColor;
-    box-shadow: 0 0 5px $primaryColor;
+    background-color: $primaryColorHover;
     color: $darkGrey;
+    //box-shadow: 0 0 5px $primaryColor;
 }
-
-.btn:hover a {
-    color: $darkGrey;
-}
-
-.rotated-back {
-    transform: rotateY(0.5turn);
-}
-
-.rotated-front {
-    transform: rotateY(1turn);
-}
-
-
 
 @mixin flex-center($direction) {
     display: flex;

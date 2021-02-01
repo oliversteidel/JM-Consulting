@@ -43,6 +43,12 @@
         }
     }
 
+    &__btn-container:active,
+    &__btn-container:focus {
+        outline: none;
+    }
+
+
     &__btn {
         width: 1.875rem;
         height: 0.125rem;
@@ -74,6 +80,11 @@
         bottom: 0.625rem;
         left: 0.125rem;
         transition: all 0.3s ease-out;
+    }
+
+    &__btn:active,
+    &__btn:focus {
+        outline: none;
     }
 
     &__btn-container.open .nav__btn {
@@ -116,7 +127,7 @@
         text-align: center;
         color: $primaryColor;
         background: $bgColor;
-        border-bottom: 1px solid $primaryColor;
+        //border-bottom: 1px solid $primaryColor;
         transition: opacity 0.3s ease-in, transform 0.5s ease-in-out;
         position: absolute;
         opacity: 0;
@@ -148,6 +159,10 @@
 
     .active {
         font-weight: 500;
+    }
+
+    &__link:focus {
+        outline: 3px dotted $primaryColor;
     }
 }
 
@@ -184,7 +199,7 @@
     &__headline {
         padding-top: 1rem;
         font-size: clamp(1.5rem, 5vw, 4rem);
-        font-weight: 300;
+        font-weight: 300;        
         text-align: center;
     }
 
@@ -208,11 +223,10 @@
     &__btn:hover {
         background-color: $primaryColor;
         box-shadow: 0 0 5px $primaryColor;
-    }
-
-    &__btn:hover a {
         color: $darkGrey;
     }
+
+
 
     &__sub-headline-container {
         text-align: center;
@@ -375,13 +389,16 @@
 /* --- START ANGEBOTE SECTION --- */
 
 .angebote {
+    position: relative;
     width: 100vw;
     padding-top: 4rem;
+    
     background-image: url(../images/stones.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    
     color: $primaryColor;
     @include flex-center(column);
 
@@ -395,10 +412,13 @@
         font-size: clamp(1.75rem, 2.5vw, 4rem);
         font-weight: 500;
         text-align: center;
-        color: $primaryColor;
+        color: $primaryColor;        
         margin-top: 2rem;
         margin-bottom: 2rem;
-        text-shadow: 0 0 10px #343a40;
+        padding: 0.5em;
+        z-index: 1;
+        
+        
     }
 
     .flex-container {
@@ -407,6 +427,7 @@
         margin-bottom: 3rem;
         box-shadow: 0 10px 25px black;
         position: relative;
+        z-index: 1;
 
         @media only screen and (min-width: 62.5rem) {
             flex-direction: row;
@@ -445,6 +466,7 @@
         @include sub-headline;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
+        
 
         @media only screen and (min-width: 62.5rem) {
             margin-top: unset;
@@ -465,9 +487,21 @@
     }
 
     &__img {
+        
         width: 100%;
         display: block;
     }
+}
+
+.angebote::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 0;
 }
 
 /* --- END ANGEBOTE SECTION --- */
@@ -483,6 +517,7 @@
     &__headline {
         @include headline-bold;
         text-shadow: 0 0 10px $bgColor;
+        z-index: 1;
     }
 
     &__content-container {
