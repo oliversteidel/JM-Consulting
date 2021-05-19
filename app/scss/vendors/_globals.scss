@@ -96,13 +96,13 @@ a:active {
 }
 
 @mixin sub-headline {
-    font-size: clamp(1.2rem, 2vw, 1.75rem);
+    font-size: clamp(1.2rem, 5vw, 1.75rem);
     font-weight: 300;
     text-align: center;
 }
 
 @mixin paragraph {
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
     font-weight: 300;
     //text-align: justify;
 }
