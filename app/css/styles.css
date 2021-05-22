@@ -15,12 +15,13 @@ html {
   padding: 0; }
 
 *:focus {
-  outline: 3px dotted #ffffe0;
+  outline: 2px dotted #ffffe0;
   outline-offset: 2px; }
 
 body {
   overflow-x: hidden;
-  height: 100%; }
+  height: 100%;
+  background: #232526; }
 
 h1,
 h2 {
@@ -86,13 +87,20 @@ a:active {
     -webkit-transform: scale(1);
             transform: scale(1); } }
 
+.container {
+  max-width: 160rem;
+  margin: 0 auto;
+  position: relative; }
+
 /* --- START NAVBAR --- */
 .nav {
-  width: 100vw;
+  width: 100%;
+  max-width: 160rem;
   height: 4.6875rem;
   position: fixed;
   top: 0;
-  left: 0;
+  margin: 0 auto;
+  padding: 1rem;
   background: linear-gradient(45deg, #232526, #414345);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,8 +111,10 @@ a:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1rem 2rem;
   z-index: 5; }
+  @media only screen and (min-width: 50em) {
+    .nav {
+      padding: 1rem 2rem; } }
   .nav__logo-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -142,7 +152,7 @@ a:active {
             justify-content: center;
     cursor: pointer;
     position: relative; }
-    @media only screen and (min-width: 45em) {
+    @media only screen and (min-width: 46.875em) {
       .nav__btn-container {
         display: none; } }
   .nav__btn-container:active, .nav__btn-container:focus {
@@ -206,7 +216,7 @@ a:active {
             align-items: center;
     line-height: 2.5em;
     border-bottom: 1px solid #ffffe0; }
-    @media only screen and (min-width: 45em) {
+    @media only screen and (min-width: 46.875em) {
       .nav__links-container {
         visibility: visible;
         position: unset;
@@ -227,7 +237,7 @@ a:active {
     transition: opacity 0.3s ease-in, transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
     position: absolute;
     opacity: 0; }
-    @media only screen and (min-width: 45em) {
+    @media only screen and (min-width: 46.875em) {
       .nav__link {
         border-bottom: unset;
         padding-right: 0.6rem;
@@ -243,19 +253,19 @@ a:active {
     border-bottom: 1px solid #ffffe0;
     -webkit-transition: width 0.2s ease-in;
     transition: width 0.2s ease-in; }
-  @media only screen and (min-width: 45em) {
+  @media only screen and (min-width: 46.875em) {
     .nav__link:hover::after {
       width: 90%; } }
   .nav .active {
     font-weight: 500; }
   .nav__link:focus {
-    outline: 3px dotted #ffffe0; }
+    outline: 1px dotted #ffffe0; }
 
 /* --- END NAVBAR --- */
 /* --- START HERO PAGE --- */
 .hero {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   padding-top: 4.6875rem;
   background-image: url(../images/klippeHoch.jpg);
   background-position: center;
@@ -366,7 +376,7 @@ a:active {
 /* --- END HERO PAGE --- */
 /* --- START MODELL SECTION --- */
 .modell {
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(45deg, #232526, #414345);
   color: #ffffe0;
   padding: 4rem 5vw 2rem 5vw;
@@ -385,7 +395,7 @@ a:active {
     padding: 1rem; }
   .modell__sub-headline {
     grid-column: 2/12;
-    font-size: clamp(1.2rem, 5vw, 1.75rem);
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
     font-weight: 300;
     text-align: center; }
     @media only screen and (min-width: 50em) {
@@ -407,7 +417,14 @@ a:active {
       padding-left: 1rem; } }
   .modell__img-container {
     grid-column: 2/12;
-    padding: 1rem; }
+    padding: 1rem;
+    overflow: hidden; }
+  .modell__img {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover; }
   @media only screen and (min-width: 50em) {
     .modell .img1 {
       grid-column: 7/13;
@@ -416,9 +433,6 @@ a:active {
     .modell .img2 {
       grid-column: 1/7;
       grid-row: 3/6; } }
-  .modell__img {
-    width: 100%;
-    height: auto; }
   .modell__text {
     font-size: clamp(0.9rem, 1.2vw, 1.2rem);
     font-weight: 300;
@@ -445,7 +459,7 @@ a:active {
 /* --- START ANGEBOTE SECTION --- */
 .angebote {
   position: relative;
-  width: 100vw;
+  width: 100%;
   padding: 4rem 1rem;
   background-image: url(../images/stones.jpg);
   background-size: cover;
@@ -550,7 +564,7 @@ a:active {
       .angebote__text-container {
         width: 50%; } }
   .angebote__title {
-    font-size: clamp(1.2rem, 5vw, 1.75rem);
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
     font-weight: 300;
     text-align: center;
     margin-top: 1.5rem;
@@ -579,7 +593,7 @@ a:active {
        object-fit: cover; }
 
 .angebote::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -592,7 +606,7 @@ a:active {
 /* --- START ABOUT SECTION --- */
 .about {
   padding-top: 4rem;
-  width: 90vw;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -656,7 +670,7 @@ a:active {
             -ms-flex-align: unset;
                 align-items: unset; } }
   .about__name {
-    font-size: clamp(1.2rem, 5vw, 1.75rem);
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
     font-weight: 300;
     text-align: center;
     margin-top: 1rem;
@@ -687,7 +701,7 @@ a:active {
 /* --- END ABOUT SECTION --- */
 /* --- START FOOTER SECTION --- */
 .footer {
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(45deg, #232526, #414345);
   color: #ffffe0;
   display: -webkit-box;
@@ -829,7 +843,7 @@ a:active {
   .datenschutz h2,
   .datenschutz h3,
   .datenschutz h4 {
-    font-size: clamp(1.2rem, 5vw, 1.75rem);
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
     font-weight: 300;
     text-align: center;
     margin-top: 2rem;

@@ -1,19 +1,30 @@
 @import "./vendors/globals";
 
+
+.container {
+    max-width: 160rem;
+    margin: 0 auto;
+    position: relative;
+}
 /* --- START NAVBAR --- */
 
 .nav {
-    width: 100vw;
+    width: 100%;
+    max-width: 160rem;
     height: 4.6875rem;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0;    
+    margin: 0 auto;
+    padding: 1rem;
     background: $bgColor;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
     z-index: 5;
+
+    @media only screen and (min-width: 50em) {
+        padding: 1rem 2rem;
+    }
 
     &__logo-wrapper {
         @include flex-center(row);
@@ -39,7 +50,7 @@
         cursor: pointer;
         position: relative;
 
-        @media only screen and (min-width: 45em) {
+        @media only screen and (min-width: 46.875em) {
             display: none;
         }
     }
@@ -48,7 +59,6 @@
     &__btn-container:focus {
         outline: none;
     }
-
 
     &__btn {
         width: 1.875rem;
@@ -111,7 +121,7 @@
         line-height: 2.5em;
         border-bottom: 1px solid $primaryColor;
 
-        @media only screen and (min-width: 45em) {
+        @media only screen and (min-width: 46.875em) {
             visibility: visible;
             position: unset;
             width: auto;
@@ -128,12 +138,11 @@
         text-align: center;
         color: $primaryColor;
         background: $bgColor;
-        //border-bottom: 1px solid $primaryColor;
         transition: opacity 0.3s ease-in, transform 0.5s ease-in-out;
         position: absolute;
         opacity: 0;
 
-        @media only screen and (min-width: 45em) {
+        @media only screen and (min-width: 46.875em) {
             border-bottom: unset;
             padding-right: 0.6rem;
             opacity: 1 !important;
@@ -153,7 +162,7 @@
     }
 
     &__link:hover::after {
-        @media only screen and (min-width: 45em) {
+        @media only screen and (min-width: 46.875em) {
             width: 90%;
         }
     }
@@ -163,7 +172,7 @@
     }
 
     &__link:focus {
-        outline: 3px dotted $primaryColor;
+        outline: 1px dotted $primaryColor;
     }
 }
 
@@ -172,8 +181,8 @@
 /* --- START HERO PAGE --- */
 
 .hero {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     padding-top: 4.6875rem;
     background-image: url(../images/klippeHoch.jpg);
     background-position: center;
@@ -200,7 +209,7 @@
     &__headline {
         padding-top: 1rem;
         font-size: clamp(1.5rem, 5vw, 4rem);
-        font-weight: 300;        
+        font-weight: 300;
         text-align: center;
     }
 
@@ -226,8 +235,6 @@
         box-shadow: 0 0 5px $primaryColor;
         color: $darkGrey;
     }
-
-
 
     &__sub-headline-container {
         text-align: center;
@@ -279,7 +286,7 @@
 /* --- START MODELL SECTION --- */
 
 .modell {
-    width: 100vw;
+    width: 100%;
     background: $bgColor;
     color: $primaryColor;
     padding: 4rem 5vw 2rem 5vw;
@@ -329,9 +336,17 @@
     &__img-container {
         grid-column: 2/12;
         padding: 1rem;
+        overflow: hidden;
     }
 
-    .img1 {
+    &__img {
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .img1 {        
         @media only screen and (min-width: 50em) {
             grid-column: 7/13;
             grid-row: 1/3;
@@ -345,21 +360,12 @@
         }
     }
 
-    &__img {
-        width: 100%;
-        height: auto;
-    }
-
     &__text {
         @include paragraph;
         padding-left: 1rem;
         padding-right: 1rem;
         padding-bottom: 1rem;
         line-height: 1.5em;
-
-        @media only screen and (min-width: 50em) {
-            // text-align: left;
-        }
     }
 
     .paragraph-1 {
@@ -391,15 +397,15 @@
 
 .angebote {
     position: relative;
-    width: 100vw;
+    width: 100%;
     padding: 4rem 1rem;
-    
+
     background-image: url(../images/stones.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+
     color: $primaryColor;
     @include flex-center(column);
 
@@ -417,13 +423,11 @@
         font-size: clamp(1.75rem, 2.5vw, 4rem);
         font-weight: 500;
         text-align: center;
-        color: $primaryColor;        
+        color: $primaryColor;
         margin-top: 2rem;
         margin-bottom: 2rem;
         padding: 0.5em;
         z-index: 1;
-        
-        
     }
 
     .flex-container {
@@ -433,7 +437,6 @@
         box-shadow: 0 10px 25px black;
         position: relative;
         z-index: 1;
-        
 
         @media only screen and (min-width: 62.5em) {
             flex-direction: row;
@@ -476,7 +479,6 @@
         @include sub-headline;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        
 
         @media only screen and (min-width: 62.5em) {
             margin-top: unset;
@@ -490,33 +492,32 @@
     }
 
     &__img-container {
-        width: 100%;        
+        width: 100%;
         background: $bgColor;
         overflow: hidden;
 
         @media only screen and (min-width: 62.5em) {
             width: 50%;
-        }        
+        }
     }
 
-    &__img {        
+    &__img {
         width: 100%;
         height: auto;
         min-height: 100%;
         display: block;
         object-fit: cover;
-        
-    }    
+    }
 }
 
 .angebote::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
 
@@ -526,7 +527,7 @@
 
 .about {
     padding-top: 4rem;
-    width: 90vw;
+    width: 90%;
     @include flex-center(column);
     color: $primaryColor;
 
@@ -615,7 +616,7 @@
 /* --- START FOOTER SECTION --- */
 
 .footer {
-    width: 100vw;
+    width: 100%;
     background: $bgColor;
     color: $primaryColor;
     @include flex-center(column);
