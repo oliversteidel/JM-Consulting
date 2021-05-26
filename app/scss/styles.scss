@@ -527,7 +527,7 @@
 
 .about {
     padding-top: 4rem;
-    width: 90%;
+    width: 100%;
     @include flex-center(column);
     color: $primaryColor;
 
@@ -546,25 +546,27 @@
         }
 
         @media only screen and (min-width: 62.5em) {
-            width: 90vw;
+            width: 100%;
             max-width: 62.5rem;
         }
     }
 
     &__img-container {
-        width: 70vw;
+        width: 100%;
         max-width: 25rem;
-        height: auto;
         background: $bgColor;
+        overflow: hidden;
     }
-
+    
     &__img {
         width: 100%;
+        height: auto;
         display: block;
+        object-fit: cover;
     }
 
     &__text-container {
-        width: 90vw;
+        width: 100%;
         padding: 2rem;
         background: $bgColor;
 
