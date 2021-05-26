@@ -633,8 +633,7 @@ a:active {
        object-fit: cover; }
   .about__text-container {
     width: 100%;
-    padding: 2rem;
-    background: linear-gradient(45deg, #232526, #414345); }
+    padding: 2rem; }
     @media only screen and (min-width: 62.5em) {
       .about__text-container {
         display: -webkit-box;

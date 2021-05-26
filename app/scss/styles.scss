@@ -566,9 +566,8 @@
     }
 
     &__text-container {
-        width: 100%;
-        padding: 2rem;
-        background: $bgColor;
+        width: 100%;        
+        padding: 2rem;        
 
         @media only screen and (min-width: 62.5em) {
             @include flex-center(column);
