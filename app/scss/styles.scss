@@ -420,14 +420,7 @@
     }
 
     &__headline {
-        font-size: clamp(1.75rem, 2.5vw, 4rem);
-        font-weight: 500;
-        text-align: center;
-        color: $primaryColor;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        padding: 0.5em;
-        z-index: 1;
+        @include headline-bold;
     }
 
     .flex-container {
@@ -510,18 +503,64 @@
     }
 }
 
-.angebote::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
 
 /* --- END ANGEBOTE SECTION --- */
+
+/* --- START NEXT SECTION --- */
+
+.next {
+    &__headline {        
+        @include headline-bold;
+        text-shadow: 0 0 10px $darkGrey;  
+        
+    }
+
+    .cards-container {
+        @include flex-center(column);
+        
+
+        @media only screen and (min-width: 90em) {
+            @include flex-center(row);
+            
+        }
+
+        .card {
+            @include flex-center(column);
+            width: 100%;
+            max-width: 18.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: $bgColor;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px black;
+
+            &__icon-wrapper {
+                margin-bottom: 2rem;
+            }
+
+            &__text {
+                @include paragraph;
+                line-height: 1.5em;
+                
+            }
+        }
+
+        .arrow-container {
+            margin-bottom: 2rem;
+
+            img {
+                transform: rotate(90deg) scale(0.75);
+
+                @media only screen and (min-width: 90em) {
+                    transform: rotate(0);
+                    margin: 3rem;
+                }
+            }
+        }
+    }
+}
+
+/* --- END NEXT SECTION --- */
 
 /* --- START ABOUT SECTION --- */
 
@@ -533,8 +572,7 @@
 
     &__headline {
         @include headline-bold;
-        text-shadow: 0 0 10px $bgColor;
-        z-index: 1;
+        text-shadow: 0 0 10px $darkGrey;        
     }
 
     &__content-container {
@@ -677,7 +715,7 @@
         }
 
         .social-icon:hover {
-            animation: scale 0.5s forwards;
+            animation: 0.5s ease-in-out forwards scale;
         }
 
         @keyframes scale {
