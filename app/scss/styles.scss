@@ -208,9 +208,10 @@
 
     &__headline {
         padding-top: 1rem;
-        font-size: clamp(1.5rem, 5vw, 4rem);
-        font-weight: 300;
+        font-size: clamp(1.5rem, 5vw, 6rem);
+        font-weight: 400;
         text-align: center;
+        //align-self: flex-start;
     }
 
     &__btn {

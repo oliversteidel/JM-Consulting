@@ -4,6 +4,7 @@ html {
           box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
+  scrollbar-color: #414345 #232526;
   height: 100%; }
 
 *,
@@ -22,6 +23,12 @@ body {
   overflow-x: hidden;
   height: 100%;
   background: #232526; }
+
+body::-webkit-scrollbar {
+  background: #232526; }
+
+body::-webkit-scrollbar-thumb {
+  background: #414345; }
 
 h1,
 h2 {
@@ -276,8 +283,8 @@ a:active {
       background-image: url(../images/klippe.jpg); } }
   .hero__headline {
     padding-top: 1rem;
-    font-size: clamp(1.5rem, 5vw, 4rem);
-    font-weight: 300;
+    font-size: clamp(1.5rem, 5vw, 6rem);
+    font-weight: 400;
     text-align: center; }
   .hero__btn {
     width: 12.5rem;

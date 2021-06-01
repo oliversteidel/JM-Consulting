@@ -9,8 +9,11 @@ html {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
+    scrollbar-color: #414345 #232526 ;
     height: 100%;
 }
+
+
 
 *,
 *::before,
@@ -30,7 +33,18 @@ body {
     overflow-x: hidden;
     height: 100%;
     background: #232526;    
+    
 }
+
+body::-webkit-scrollbar {
+    background: #232526;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #414345;
+}
+
+
 
 h1,
 h2 {
