@@ -29,6 +29,10 @@ html {
     outline-offset: 2px;
 }
 
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
 body {
     overflow-x: hidden;
     height: 100%;
